@@ -138,16 +138,16 @@ void printPath(pair<int,int> exitcell,
 
         visited[ent_r][ent_c] = true;
         for (int r = 0; r < 4; r++) {
-            int new_row = ent_r + dr[r];
+            int new_r = ent_r + dr[r];
             int new_c = ent_c + dc[r];
 
-            if (new_row >= 0 && new_row < N && new_c >= 0 && new_c < M) {
-                if (maze[new_row][new_c] == 0 && !visited[new_row][new_c]) {
+            if (new_r >= 0 && new_r < N && new_c >= 0 && new_c < M) {
+                if (maze[new_r][new_c] == 0 && !visited[new_r][new_c]) {
 
-                    parent_r[new_row][new_c] = ent_r;
-                    parent_c[new_row][new_c] = ent_c;
+                    parent_r[new_r][new_c] = ent_r;
+                    parent_c[new_r][new_c] = ent_c;
 
-                    if (dfs(new_row,new_c,maze,visited,parent_r,parent_c,exit_r,exit_c)) {
+                    if (dfs(new_r,new_c,maze,visited,parent_r,parent_c,exit_r,exit_c)) {
                         return true;
                     }
                 }
